@@ -1,0 +1,156 @@
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_CREATE [thread 3]
+	(0, 4): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Rrlx (a, 0) [INIT]
+	(1, 2): Wrlx (b, 1)
+	(1, 3): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (b, 1) [(1, 2)]
+	(2, 2): Wrlx (c, 1)
+	(2, 3): THREAD_END
+<0, 3> thread_3:
+	(3, 1): Rrlx (c, 1) [(2, 2)]
+	(3, 2): Wrlx (a, 1)
+	(3, 3): THREAD_END
+
+XMM Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_CREATE [thread 3]
+	(0, 4): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Rrlx (a, 1) [(3, 2)]
+	(1, 2): Wrlx (b, 1)
+	(1, 3): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (b, 1) [(1, 2)]
+	(2, 2): Wrlx (c, 1)
+	(2, 3): THREAD_END
+<0, 3> thread_3:
+	(3, 1): Rrlx (c, 1) [(2, 2)]
+	(3, 2): Wrlx (a, 1)
+	(3, 3): THREAD_END
+
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_CREATE [thread 3]
+	(0, 4): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Rrlx (a, 0) [INIT]
+	(1, 2): Wrlx (b, 1)
+	(1, 3): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (b, 1) [(1, 2)]
+	(2, 2): Wrlx (c, 1)
+	(2, 3): THREAD_END
+<0, 3> thread_3:
+	(3, 1): Rrlx (c, 0) [INIT]
+	(3, 2): Wrlx (a, 1)
+	(3, 3): THREAD_END
+
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_CREATE [thread 3]
+	(0, 4): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Rrlx (a, 1) [(3, 2)]
+	(1, 2): Wrlx (b, 1)
+	(1, 3): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (b, 1) [(1, 2)]
+	(2, 2): Wrlx (c, 1)
+	(2, 3): THREAD_END
+<0, 3> thread_3:
+	(3, 1): Rrlx (c, 0) [INIT]
+	(3, 2): Wrlx (a, 1)
+	(3, 3): THREAD_END
+
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_CREATE [thread 3]
+	(0, 4): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Rrlx (a, 1) [(3, 2)]
+	(1, 2): Wrlx (b, 1)
+	(1, 3): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (b, 0) [INIT]
+	(2, 2): Wrlx (c, 1)
+	(2, 3): THREAD_END
+<0, 3> thread_3:
+	(3, 1): Rrlx (c, 0) [INIT]
+	(3, 2): Wrlx (a, 1)
+	(3, 3): THREAD_END
+
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_CREATE [thread 3]
+	(0, 4): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Rrlx (a, 0) [INIT]
+	(1, 2): Wrlx (b, 1)
+	(1, 3): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (b, 0) [INIT]
+	(2, 2): Wrlx (c, 1)
+	(2, 3): THREAD_END
+<0, 3> thread_3:
+	(3, 1): Rrlx (c, 1) [(2, 2)]
+	(3, 2): Wrlx (a, 1)
+	(3, 3): THREAD_END
+
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_CREATE [thread 3]
+	(0, 4): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Rrlx (a, 1) [(3, 2)]
+	(1, 2): Wrlx (b, 1)
+	(1, 3): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (b, 0) [INIT]
+	(2, 2): Wrlx (c, 1)
+	(2, 3): THREAD_END
+<0, 3> thread_3:
+	(3, 1): Rrlx (c, 1) [(2, 2)]
+	(3, 2): Wrlx (a, 1)
+	(3, 3): THREAD_END
+
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_CREATE [thread 3]
+	(0, 4): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Rrlx (a, 0) [INIT]
+	(1, 2): Wrlx (b, 1)
+	(1, 3): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (b, 0) [INIT]
+	(2, 2): Wrlx (c, 1)
+	(2, 3): THREAD_END
+<0, 3> thread_3:
+	(3, 1): Rrlx (c, 0) [INIT]
+	(3, 2): Wrlx (a, 1)
+	(3, 3): THREAD_END
+
+No errors were detected.
+Number of complete executions explored: 8
+Number of duplicate executions explored: 3
+Total wall-clock time: 0.14s

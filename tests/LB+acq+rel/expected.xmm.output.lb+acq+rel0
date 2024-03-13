@@ -1,0 +1,46 @@
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_END
+<0, 1> thread_one:
+	(1, 1): Racq (y, 0) [INIT]
+	(1, 2): Wrel (x, 1)
+	(1, 3): THREAD_END
+<0, 2> thread_two:
+	(2, 1): Racq (x, 1) [(1, 2)]
+	(2, 2): Wrel (y, 1)
+	(2, 3): THREAD_END
+
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_END
+<0, 1> thread_one:
+	(1, 1): Racq (y, 0) [INIT]
+	(1, 2): Wrel (x, 1)
+	(1, 3): THREAD_END
+<0, 2> thread_two:
+	(2, 1): Racq (x, 0) [INIT]
+	(2, 2): Wrel (y, 1)
+	(2, 3): THREAD_END
+
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_END
+<0, 1> thread_one:
+	(1, 1): Racq (y, 1) [(2, 2)]
+	(1, 2): Wrel (x, 1)
+	(1, 3): THREAD_END
+<0, 2> thread_two:
+	(2, 1): Racq (x, 0) [INIT]
+	(2, 2): Wrel (y, 1)
+	(2, 3): THREAD_END
+
+No errors were detected.
+Number of complete executions explored: 3
+Number of duplicate executions explored: 0
+Total wall-clock time: 0.12s
