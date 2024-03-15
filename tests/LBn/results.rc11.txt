@@ -1,0 +1,27 @@
+LB2
+Number of complete executions explored: 3 (0 duplicates)
+Total wall-clock time: 0.02s
+LB3
+Number of complete executions explored: 7 (0 duplicates)
+Total wall-clock time: 0.01s
+LB4
+Number of complete executions explored: 15 (0 duplicates)
+Total wall-clock time: 0.01s
+LB5
+Number of complete executions explored: 31 (0 duplicates)
+Total wall-clock time: 0.02s
+LB6
+Number of complete executions explored: 63 (0 duplicates)
+Total wall-clock time: 0.03s
+LB7
+Number of complete executions explored: 127 (0 duplicates)
+Total wall-clock time: 0.05s
+LB8
+Number of complete executions explored: 255 (0 duplicates)
+Total wall-clock time: 0.09s
+LB9
+Number of complete executions explored: 511 (0 duplicates)
+Total wall-clock time: 0.18s
+LB10
+Number of complete executions explored: 1023 (0 duplicates)
+Total wall-clock time: 0.37s
