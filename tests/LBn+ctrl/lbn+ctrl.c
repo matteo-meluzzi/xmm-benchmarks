@@ -5,6 +5,8 @@
 // [b] :=   1;   || if (r2)      || if (r3)      || if (r4)
 //               ||   [c] :=  1; ||   [d] :=  1; ||   [a] := 1;
 
+#define N 10
+
 typedef struct data {
 	int tid;
 	atomic_int* x;

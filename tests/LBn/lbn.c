@@ -3,6 +3,8 @@
 // r1  := [a];  || r2  := [b];  || r3  := [c];  || r4 := [d];
 // [b] :=   1;  || [c] :=   1;  || [d] :=   1;  || [a] :=  1;
 
+#define N 10
+
 typedef struct data {
 	int tid;
 	atomic_int* x;
