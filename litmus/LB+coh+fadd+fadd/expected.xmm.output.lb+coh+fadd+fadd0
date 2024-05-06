@@ -1,0 +1,58 @@
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_END
+<0, 1> thread_1:
+	(1, 1): URrlx (x, 0) [INIT]
+	(1, 2): UWrlx (x, 1)
+	(1, 3): URrlx (x, 1) [(1, 2)]
+	(1, 4): UWrlx (x, 2)
+	(1, 5): THREAD_END
+<0, 2> thread_2:
+	(2, 1): URrlx (x, 2) [(1, 4)]
+	(2, 2): UWrlx (x, 3)
+	(2, 3): THREAD_END
+Coherence:
+x: [ (1, 2): UWrlx (GU#0, 1) (1, 4): UWrlx (GU#0, 2) (2, 2): UWrlx (GU#0, 3) ]
+
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_END
+<0, 1> thread_1:
+	(1, 1): URrlx (x, 0) [INIT]
+	(1, 2): UWrlx (x, 1)
+	(1, 3): URrlx (x, 2) [(2, 2)]
+	(1, 4): UWrlx (x, 3)
+	(1, 5): THREAD_END
+<0, 2> thread_2:
+	(2, 1): URrlx (x, 1) [(1, 2)]
+	(2, 2): UWrlx (x, 2)
+	(2, 3): THREAD_END
+Coherence:
+x: [ (1, 2): UWrlx (GU#0, 1) (2, 2): UWrlx (GU#0, 2) (1, 4): UWrlx (GU#0, 3) ]
+
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_END
+<0, 1> thread_1:
+	(1, 1): URrlx (x, 1) [(2, 2)]
+	(1, 2): UWrlx (x, 2)
+	(1, 3): URrlx (x, 2) [(1, 2)]
+	(1, 4): UWrlx (x, 3)
+	(1, 5): THREAD_END
+<0, 2> thread_2:
+	(2, 1): URrlx (x, 0) [INIT]
+	(2, 2): UWrlx (x, 1)
+	(2, 3): THREAD_END
+Coherence:
+x: [ (2, 2): UWrlx (GU#0, 1) (1, 2): UWrlx (GU#0, 2) (1, 4): UWrlx (GU#0, 3) ]
+
+No errors were detected.
+Number of complete executions explored: 3
+Number of duplicate executions explored: 0
+Total wall-clock time: 0.10s

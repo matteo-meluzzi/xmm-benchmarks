@@ -1,0 +1,4 @@
+
+
+Number of complete executions explored: 6
+Total wall-clock time: 0.02s

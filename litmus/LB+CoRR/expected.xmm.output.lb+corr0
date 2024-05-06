@@ -1,0 +1,285 @@
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Rrlx (x, 0) [INIT]
+	(1, 2): Wrel (z, 1)
+	(1, 3): Wrel (z, 2)
+	(1, 4): Wrlx (y, 1)
+	(1, 5): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (y, 1) [(1, 4)]
+	(2, 2): Racq (z, 2) [(1, 3)]
+	(2, 3): Racq (z, 2) [(1, 3)]
+	(2, 4): Wrlx (x, 1)
+	(2, 5): THREAD_END
+Coherence:
+z: [ (1, 2): Wrel (GU#8, 1) (1, 3): Wrel (GU#8, 2) ]
+
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Rrlx (x, 0) [INIT]
+	(1, 2): Wrel (z, 1)
+	(1, 3): Wrel (z, 2)
+	(1, 4): Wrlx (y, 1)
+	(1, 5): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (y, 1) [(1, 4)]
+	(2, 2): Racq (z, 1) [(1, 2)]
+	(2, 3): Racq (z, 2) [(1, 3)]
+	(2, 4): Wrlx (x, 1)
+	(2, 5): THREAD_END
+Coherence:
+z: [ (1, 2): Wrel (GU#8, 1) (1, 3): Wrel (GU#8, 2) ]
+
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Rrlx (x, 0) [INIT]
+	(1, 2): Wrel (z, 1)
+	(1, 3): Wrel (z, 2)
+	(1, 4): Wrlx (y, 1)
+	(1, 5): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (y, 1) [(1, 4)]
+	(2, 2): Racq (z, 1) [(1, 2)]
+	(2, 3): Racq (z, 1) [(1, 2)]
+	(2, 4): Wrlx (x, 1)
+	(2, 5): THREAD_END
+Coherence:
+z: [ (1, 2): Wrel (GU#8, 1) (1, 3): Wrel (GU#8, 2) ]
+
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Rrlx (x, 0) [INIT]
+	(1, 2): Wrel (z, 1)
+	(1, 3): Wrel (z, 2)
+	(1, 4): Wrlx (y, 1)
+	(1, 5): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (y, 1) [(1, 4)]
+	(2, 2): Racq (z, 0) [INIT]
+	(2, 3): Racq (z, 2) [(1, 3)]
+	(2, 4): Wrlx (x, 1)
+	(2, 5): THREAD_END
+Coherence:
+z: [ (1, 2): Wrel (GU#8, 1) (1, 3): Wrel (GU#8, 2) ]
+
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Rrlx (x, 0) [INIT]
+	(1, 2): Wrel (z, 1)
+	(1, 3): Wrel (z, 2)
+	(1, 4): Wrlx (y, 1)
+	(1, 5): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (y, 1) [(1, 4)]
+	(2, 2): Racq (z, 0) [INIT]
+	(2, 3): Racq (z, 1) [(1, 2)]
+	(2, 4): Wrlx (x, 1)
+	(2, 5): THREAD_END
+Coherence:
+z: [ (1, 2): Wrel (GU#8, 1) (1, 3): Wrel (GU#8, 2) ]
+
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Rrlx (x, 0) [INIT]
+	(1, 2): Wrel (z, 1)
+	(1, 3): Wrel (z, 2)
+	(1, 4): Wrlx (y, 1)
+	(1, 5): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (y, 1) [(1, 4)]
+	(2, 2): Racq (z, 0) [INIT]
+	(2, 3): Racq (z, 0) [INIT]
+	(2, 4): Wrlx (x, 1)
+	(2, 5): THREAD_END
+Coherence:
+z: [ (1, 2): Wrel (GU#8, 1) (1, 3): Wrel (GU#8, 2) ]
+
+XMM Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Rrlx (x, 1) [(2, 4)]
+	(1, 2): Wrel (z, 1)
+	(1, 3): Wrel (z, 2)
+	(1, 4): Wrlx (y, 1)
+	(1, 5): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (y, 1) [(1, 4)]
+	(2, 2): Racq (z, 0) [INIT]
+	(2, 3): Racq (z, 0) [INIT]
+	(2, 4): Wrlx (x, 1)
+	(2, 5): THREAD_END
+Coherence:
+z: [ (1, 2): Wrel (GU#8, 1) (1, 3): Wrel (GU#8, 2) ]
+
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Rrlx (x, 0) [INIT]
+	(1, 2): Wrel (z, 1)
+	(1, 3): Wrel (z, 2)
+	(1, 4): Wrlx (y, 1)
+	(1, 5): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (y, 0) [INIT]
+	(2, 2): Racq (z, 2) [(1, 3)]
+	(2, 3): Racq (z, 2) [(1, 3)]
+	(2, 4): Wrlx (x, 1)
+	(2, 5): THREAD_END
+Coherence:
+z: [ (1, 2): Wrel (GU#8, 1) (1, 3): Wrel (GU#8, 2) ]
+
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Rrlx (x, 0) [INIT]
+	(1, 2): Wrel (z, 1)
+	(1, 3): Wrel (z, 2)
+	(1, 4): Wrlx (y, 1)
+	(1, 5): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (y, 0) [INIT]
+	(2, 2): Racq (z, 1) [(1, 2)]
+	(2, 3): Racq (z, 2) [(1, 3)]
+	(2, 4): Wrlx (x, 1)
+	(2, 5): THREAD_END
+Coherence:
+z: [ (1, 2): Wrel (GU#8, 1) (1, 3): Wrel (GU#8, 2) ]
+
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Rrlx (x, 0) [INIT]
+	(1, 2): Wrel (z, 1)
+	(1, 3): Wrel (z, 2)
+	(1, 4): Wrlx (y, 1)
+	(1, 5): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (y, 0) [INIT]
+	(2, 2): Racq (z, 1) [(1, 2)]
+	(2, 3): Racq (z, 1) [(1, 2)]
+	(2, 4): Wrlx (x, 1)
+	(2, 5): THREAD_END
+Coherence:
+z: [ (1, 2): Wrel (GU#8, 1) (1, 3): Wrel (GU#8, 2) ]
+
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Rrlx (x, 0) [INIT]
+	(1, 2): Wrel (z, 1)
+	(1, 3): Wrel (z, 2)
+	(1, 4): Wrlx (y, 1)
+	(1, 5): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (y, 0) [INIT]
+	(2, 2): Racq (z, 0) [INIT]
+	(2, 3): Racq (z, 2) [(1, 3)]
+	(2, 4): Wrlx (x, 1)
+	(2, 5): THREAD_END
+Coherence:
+z: [ (1, 2): Wrel (GU#8, 1) (1, 3): Wrel (GU#8, 2) ]
+
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Rrlx (x, 0) [INIT]
+	(1, 2): Wrel (z, 1)
+	(1, 3): Wrel (z, 2)
+	(1, 4): Wrlx (y, 1)
+	(1, 5): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (y, 0) [INIT]
+	(2, 2): Racq (z, 0) [INIT]
+	(2, 3): Racq (z, 1) [(1, 2)]
+	(2, 4): Wrlx (x, 1)
+	(2, 5): THREAD_END
+Coherence:
+z: [ (1, 2): Wrel (GU#8, 1) (1, 3): Wrel (GU#8, 2) ]
+
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Rrlx (x, 0) [INIT]
+	(1, 2): Wrel (z, 1)
+	(1, 3): Wrel (z, 2)
+	(1, 4): Wrlx (y, 1)
+	(1, 5): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (y, 0) [INIT]
+	(2, 2): Racq (z, 0) [INIT]
+	(2, 3): Racq (z, 0) [INIT]
+	(2, 4): Wrlx (x, 1)
+	(2, 5): THREAD_END
+Coherence:
+z: [ (1, 2): Wrel (GU#8, 1) (1, 3): Wrel (GU#8, 2) ]
+
+GenMC Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Rrlx (x, 1) [(2, 4)]
+	(1, 2): Wrel (z, 1)
+	(1, 3): Wrel (z, 2)
+	(1, 4): Wrlx (y, 1)
+	(1, 5): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (y, 0) [INIT]
+	(2, 2): Racq (z, 0) [INIT]
+	(2, 3): Racq (z, 0) [INIT]
+	(2, 4): Wrlx (x, 1)
+	(2, 5): THREAD_END
+Coherence:
+z: [ (1, 2): Wrel (GU#8, 1) (1, 3): Wrel (GU#8, 2) ]
+
+No errors were detected.
+Number of complete executions explored: 14
+Number of duplicate executions explored: 2
+Number of blocked executions seen: 16
+Total wall-clock time: 0.09s
