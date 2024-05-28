@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  xmm-benchmarks-compose:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
+    command: jupyter notebook --notebook-dir=/root/xmm-benchmarks --allow-root --port=8888 --ip="*" --NotebookApp.token="" --NotebookApp.password=""
+    container_name: xmm-benchmarks-compose
