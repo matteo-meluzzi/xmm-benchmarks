@@ -68,6 +68,54 @@ XMM Execution Graph:
 Coherence:
 x: [ (1, 1): Wrlx (GU#0, 2) (2, 2): Wrlx (GU#0, 1) (2, 5): Wrlx (GU#0, 3) ]
 
+XMM Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_CREATE [thread 3]
+	(0, 4): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Wrlx (x, 2)
+	(1, 2): Rrlx (x, 3) [(2, 5)]
+	(1, 3): Wrlx (y, 1)
+	(1, 4): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (z, 1) [(3, 1)]
+	(2, 2): Wrlx (x, 1)
+	(2, 3): Rrlx (x, 2) [(1, 1)]
+	(2, 4): Rrlx (y, 1) [(1, 3)]
+	(2, 5): Wrlx (x, 3)
+	(2, 6): THREAD_END
+<0, 3> thread_3:
+	(3, 1): Wrlx (z, 1)
+	(3, 2): THREAD_END
+Coherence:
+x: [ (2, 2): Wrlx (GU#0, 1) (1, 1): Wrlx (GU#0, 2) (2, 5): Wrlx (GU#0, 3) ]
+
+XMM Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_CREATE [thread 3]
+	(0, 4): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Wrlx (x, 2)
+	(1, 2): Rrlx (x, 3) [(2, 5)]
+	(1, 3): Wrlx (y, 1)
+	(1, 4): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (z, 1) [(3, 1)]
+	(2, 2): Wrlx (x, 1)
+	(2, 3): Rrlx (x, 1) [(2, 2)]
+	(2, 4): Rrlx (y, 1) [(1, 3)]
+	(2, 5): Wrlx (x, 3)
+	(2, 6): THREAD_END
+<0, 3> thread_3:
+	(3, 1): Wrlx (z, 1)
+	(3, 2): THREAD_END
+Coherence:
+x: [ (2, 2): Wrlx (GU#0, 1) (1, 1): Wrlx (GU#0, 2) (2, 5): Wrlx (GU#0, 3) ]
+
 GenMC Execution Graph:
 <-1, 0> main:
 	(0, 1): THREAD_CREATE [thread 1]
@@ -205,6 +253,54 @@ XMM Execution Graph:
 Coherence:
 x: [ (1, 1): Wrlx (GU#0, 2) (2, 2): Wrlx (GU#0, 1) (2, 5): Wrlx (GU#0, 3) ]
 
+XMM Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_CREATE [thread 3]
+	(0, 4): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Wrlx (x, 2)
+	(1, 2): Rrlx (x, 3) [(2, 5)]
+	(1, 3): Wrlx (y, 1)
+	(1, 4): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (z, 0) [INIT]
+	(2, 2): Wrlx (x, 1)
+	(2, 3): Rrlx (x, 2) [(1, 1)]
+	(2, 4): Rrlx (y, 1) [(1, 3)]
+	(2, 5): Wrlx (x, 3)
+	(2, 6): THREAD_END
+<0, 3> thread_3:
+	(3, 1): Wrlx (z, 1)
+	(3, 2): THREAD_END
+Coherence:
+x: [ (2, 2): Wrlx (GU#0, 1) (1, 1): Wrlx (GU#0, 2) (2, 5): Wrlx (GU#0, 3) ]
+
+XMM Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_CREATE [thread 3]
+	(0, 4): THREAD_END
+<0, 1> thread_1:
+	(1, 1): Wrlx (x, 2)
+	(1, 2): Rrlx (x, 3) [(2, 5)]
+	(1, 3): Wrlx (y, 1)
+	(1, 4): THREAD_END
+<0, 2> thread_2:
+	(2, 1): Rrlx (z, 0) [INIT]
+	(2, 2): Wrlx (x, 1)
+	(2, 3): Rrlx (x, 1) [(2, 2)]
+	(2, 4): Rrlx (y, 1) [(1, 3)]
+	(2, 5): Wrlx (x, 3)
+	(2, 6): THREAD_END
+<0, 3> thread_3:
+	(3, 1): Wrlx (z, 1)
+	(3, 2): THREAD_END
+Coherence:
+x: [ (2, 2): Wrlx (GU#0, 1) (1, 1): Wrlx (GU#0, 2) (2, 5): Wrlx (GU#0, 3) ]
+
 GenMC Execution Graph:
 <-1, 0> main:
 	(0, 1): THREAD_CREATE [thread 1]
@@ -273,6 +369,8 @@ Coherence:
 x: [ (2, 2): Wrlx (GU#0, 1) (1, 1): Wrlx (GU#0, 2) ]
 
 No errors were detected.
-Number of complete executions explored: 12
-Number of duplicate executions explored: 2
+Number of complete executions explored: 16
+Number of duplicate executions explored: 6
+Number of load buffering races explored: 2
+Number of blocked executions seen: 12
 Total wall-clock time: 0.12s

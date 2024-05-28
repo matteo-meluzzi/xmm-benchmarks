@@ -64,7 +64,7 @@ XMM Execution Graph:
 	(2, 2): Wrlx (y, 2)
 	(2, 3): THREAD_END
 <0, 3> thread_3:
-	(3, 1): Rrlx (y, 2) [(2, 2)]
+	(3, 1): Rrlx (y, 1) [(1, 1)]
 	(3, 2): Rrlx (y, 2) [(2, 2)]
 	(3, 3): THREAD_END
 <0, 4> thread_2:
@@ -72,7 +72,107 @@ XMM Execution Graph:
 	(4, 2): Wrlx (x, 1)
 	(4, 3): THREAD_END
 Coherence:
-y: [ (2, 2): Wrlx (GU#0, 2) (1, 1): Wrlx (GU#0, 1) ]
+y: [ (1, 1): Wrlx (GU#0, 1) (2, 2): Wrlx (GU#0, 2) ]
+
+XMM Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_CREATE [thread 3]
+	(0, 4): THREAD_CREATE [thread 4]
+	(0, 5): THREAD_END
+<0, 1> thread_0:
+	(1, 1): Wrlx (y, 1)
+	(1, 2): THREAD_END
+<0, 2> thread_1:
+	(2, 1): Rrlx (x, 1) [(4, 2)]
+	(2, 2): Wrlx (y, 2)
+	(2, 3): THREAD_END
+<0, 3> thread_3:
+	(3, 1): Rrlx (y, 1) [(1, 1)]
+	(3, 2): Rrlx (y, 1) [(1, 1)]
+	(3, 3): THREAD_END
+<0, 4> thread_2:
+	(4, 1): Rrlx (y, 2) [(2, 2)]
+	(4, 2): Wrlx (x, 1)
+	(4, 3): THREAD_END
+Coherence:
+y: [ (1, 1): Wrlx (GU#0, 1) (2, 2): Wrlx (GU#0, 2) ]
+
+XMM Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_CREATE [thread 3]
+	(0, 4): THREAD_CREATE [thread 4]
+	(0, 5): THREAD_END
+<0, 1> thread_0:
+	(1, 1): Wrlx (y, 1)
+	(1, 2): THREAD_END
+<0, 2> thread_1:
+	(2, 1): Rrlx (x, 1) [(4, 2)]
+	(2, 2): Wrlx (y, 2)
+	(2, 3): THREAD_END
+<0, 3> thread_3:
+	(3, 1): Rrlx (y, 0) [INIT]
+	(3, 2): Rrlx (y, 2) [(2, 2)]
+	(3, 3): THREAD_END
+<0, 4> thread_2:
+	(4, 1): Rrlx (y, 2) [(2, 2)]
+	(4, 2): Wrlx (x, 1)
+	(4, 3): THREAD_END
+Coherence:
+y: [ (1, 1): Wrlx (GU#0, 1) (2, 2): Wrlx (GU#0, 2) ]
+
+XMM Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_CREATE [thread 3]
+	(0, 4): THREAD_CREATE [thread 4]
+	(0, 5): THREAD_END
+<0, 1> thread_0:
+	(1, 1): Wrlx (y, 1)
+	(1, 2): THREAD_END
+<0, 2> thread_1:
+	(2, 1): Rrlx (x, 1) [(4, 2)]
+	(2, 2): Wrlx (y, 2)
+	(2, 3): THREAD_END
+<0, 3> thread_3:
+	(3, 1): Rrlx (y, 0) [INIT]
+	(3, 2): Rrlx (y, 1) [(1, 1)]
+	(3, 3): THREAD_END
+<0, 4> thread_2:
+	(4, 1): Rrlx (y, 2) [(2, 2)]
+	(4, 2): Wrlx (x, 1)
+	(4, 3): THREAD_END
+Coherence:
+y: [ (1, 1): Wrlx (GU#0, 1) (2, 2): Wrlx (GU#0, 2) ]
+
+XMM Execution Graph:
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_CREATE [thread 3]
+	(0, 4): THREAD_CREATE [thread 4]
+	(0, 5): THREAD_END
+<0, 1> thread_0:
+	(1, 1): Wrlx (y, 1)
+	(1, 2): THREAD_END
+<0, 2> thread_1:
+	(2, 1): Rrlx (x, 1) [(4, 2)]
+	(2, 2): Wrlx (y, 2)
+	(2, 3): THREAD_END
+<0, 3> thread_3:
+	(3, 1): Rrlx (y, 0) [INIT]
+	(3, 2): Rrlx (y, 0) [INIT]
+	(3, 3): THREAD_END
+<0, 4> thread_2:
+	(4, 1): Rrlx (y, 2) [(2, 2)]
+	(4, 2): Wrlx (x, 1)
+	(4, 3): THREAD_END
+Coherence:
+y: [ (1, 1): Wrlx (GU#0, 1) (2, 2): Wrlx (GU#0, 2) ]
 
 XMM HB PREDS Execution Graph
 <-1, 0> main:
@@ -116,6 +216,31 @@ XMM HB PREDS Execution Graph
 <0, 3> thread_3:
 	(3, 1): Rrlx (y, 2) [(2, 2)]
 	(3, 2): Rrlx (y, 1) [(1, 1)]
+	(3, 3): THREAD_END
+<0, 4> thread_2:
+	(4, 1): Rrlx (y, 2) [(2, 2)]
+	(4, 2): Wrlx (x, 1)
+	(4, 3): THREAD_END
+Coherence:
+y: [ (2, 2): Wrlx (GU#0, 2) (1, 1): Wrlx (GU#0, 1) ]
+
+XMM HB PREDS Execution Graph
+<-1, 0> main:
+	(0, 1): THREAD_CREATE [thread 1]
+	(0, 2): THREAD_CREATE [thread 2]
+	(0, 3): THREAD_CREATE [thread 3]
+	(0, 4): THREAD_CREATE [thread 4]
+	(0, 5): THREAD_END
+<0, 1> thread_0:
+	(1, 1): Wrlx (y, 1)
+	(1, 2): THREAD_END
+<0, 2> thread_1:
+	(2, 1): Rrlx (x, 1) [(4, 2)]
+	(2, 2): Wrlx (y, 2)
+	(2, 3): THREAD_END
+<0, 3> thread_3:
+	(3, 1): Rrlx (y, 2) [(2, 2)]
+	(3, 2): Rrlx (y, 2) [(2, 2)]
 	(3, 3): THREAD_END
 <0, 4> thread_2:
 	(4, 1): Rrlx (y, 2) [(2, 2)]
@@ -198,131 +323,6 @@ XMM HB PREDS Execution Graph
 	(4, 3): THREAD_END
 Coherence:
 y: [ (2, 2): Wrlx (GU#0, 2) (1, 1): Wrlx (GU#0, 1) ]
-
-XMM HB PREDS Execution Graph
-<-1, 0> main:
-	(0, 1): THREAD_CREATE [thread 1]
-	(0, 2): THREAD_CREATE [thread 2]
-	(0, 3): THREAD_CREATE [thread 3]
-	(0, 4): THREAD_CREATE [thread 4]
-	(0, 5): THREAD_END
-<0, 1> thread_0:
-	(1, 1): Wrlx (y, 1)
-	(1, 2): THREAD_END
-<0, 2> thread_1:
-	(2, 1): Rrlx (x, 1) [(4, 2)]
-	(2, 2): Wrlx (y, 2)
-	(2, 3): THREAD_END
-<0, 3> thread_3:
-	(3, 1): Rrlx (y, 1) [(1, 1)]
-	(3, 2): Rrlx (y, 2) [(2, 2)]
-	(3, 3): THREAD_END
-<0, 4> thread_2:
-	(4, 1): Rrlx (y, 2) [(2, 2)]
-	(4, 2): Wrlx (x, 1)
-	(4, 3): THREAD_END
-Coherence:
-y: [ (1, 1): Wrlx (GU#0, 1) (2, 2): Wrlx (GU#0, 2) ]
-
-XMM HB PREDS Execution Graph
-<-1, 0> main:
-	(0, 1): THREAD_CREATE [thread 1]
-	(0, 2): THREAD_CREATE [thread 2]
-	(0, 3): THREAD_CREATE [thread 3]
-	(0, 4): THREAD_CREATE [thread 4]
-	(0, 5): THREAD_END
-<0, 1> thread_0:
-	(1, 1): Wrlx (y, 1)
-	(1, 2): THREAD_END
-<0, 2> thread_1:
-	(2, 1): Rrlx (x, 1) [(4, 2)]
-	(2, 2): Wrlx (y, 2)
-	(2, 3): THREAD_END
-<0, 3> thread_3:
-	(3, 1): Rrlx (y, 1) [(1, 1)]
-	(3, 2): Rrlx (y, 1) [(1, 1)]
-	(3, 3): THREAD_END
-<0, 4> thread_2:
-	(4, 1): Rrlx (y, 2) [(2, 2)]
-	(4, 2): Wrlx (x, 1)
-	(4, 3): THREAD_END
-Coherence:
-y: [ (1, 1): Wrlx (GU#0, 1) (2, 2): Wrlx (GU#0, 2) ]
-
-XMM HB PREDS Execution Graph
-<-1, 0> main:
-	(0, 1): THREAD_CREATE [thread 1]
-	(0, 2): THREAD_CREATE [thread 2]
-	(0, 3): THREAD_CREATE [thread 3]
-	(0, 4): THREAD_CREATE [thread 4]
-	(0, 5): THREAD_END
-<0, 1> thread_0:
-	(1, 1): Wrlx (y, 1)
-	(1, 2): THREAD_END
-<0, 2> thread_1:
-	(2, 1): Rrlx (x, 1) [(4, 2)]
-	(2, 2): Wrlx (y, 2)
-	(2, 3): THREAD_END
-<0, 3> thread_3:
-	(3, 1): Rrlx (y, 0) [INIT]
-	(3, 2): Rrlx (y, 2) [(2, 2)]
-	(3, 3): THREAD_END
-<0, 4> thread_2:
-	(4, 1): Rrlx (y, 2) [(2, 2)]
-	(4, 2): Wrlx (x, 1)
-	(4, 3): THREAD_END
-Coherence:
-y: [ (1, 1): Wrlx (GU#0, 1) (2, 2): Wrlx (GU#0, 2) ]
-
-XMM HB PREDS Execution Graph
-<-1, 0> main:
-	(0, 1): THREAD_CREATE [thread 1]
-	(0, 2): THREAD_CREATE [thread 2]
-	(0, 3): THREAD_CREATE [thread 3]
-	(0, 4): THREAD_CREATE [thread 4]
-	(0, 5): THREAD_END
-<0, 1> thread_0:
-	(1, 1): Wrlx (y, 1)
-	(1, 2): THREAD_END
-<0, 2> thread_1:
-	(2, 1): Rrlx (x, 1) [(4, 2)]
-	(2, 2): Wrlx (y, 2)
-	(2, 3): THREAD_END
-<0, 3> thread_3:
-	(3, 1): Rrlx (y, 0) [INIT]
-	(3, 2): Rrlx (y, 1) [(1, 1)]
-	(3, 3): THREAD_END
-<0, 4> thread_2:
-	(4, 1): Rrlx (y, 2) [(2, 2)]
-	(4, 2): Wrlx (x, 1)
-	(4, 3): THREAD_END
-Coherence:
-y: [ (1, 1): Wrlx (GU#0, 1) (2, 2): Wrlx (GU#0, 2) ]
-
-XMM HB PREDS Execution Graph
-<-1, 0> main:
-	(0, 1): THREAD_CREATE [thread 1]
-	(0, 2): THREAD_CREATE [thread 2]
-	(0, 3): THREAD_CREATE [thread 3]
-	(0, 4): THREAD_CREATE [thread 4]
-	(0, 5): THREAD_END
-<0, 1> thread_0:
-	(1, 1): Wrlx (y, 1)
-	(1, 2): THREAD_END
-<0, 2> thread_1:
-	(2, 1): Rrlx (x, 1) [(4, 2)]
-	(2, 2): Wrlx (y, 2)
-	(2, 3): THREAD_END
-<0, 3> thread_3:
-	(3, 1): Rrlx (y, 0) [INIT]
-	(3, 2): Rrlx (y, 0) [INIT]
-	(3, 3): THREAD_END
-<0, 4> thread_2:
-	(4, 1): Rrlx (y, 2) [(2, 2)]
-	(4, 2): Wrlx (x, 1)
-	(4, 3): THREAD_END
-Coherence:
-y: [ (1, 1): Wrlx (GU#0, 1) (2, 2): Wrlx (GU#0, 2) ]
 
 GenMC Execution Graph:
 <-1, 0> main:
@@ -399,31 +399,6 @@ GenMC Execution Graph:
 	(4, 3): THREAD_END
 Coherence:
 y: [ (1, 1): Wrlx (GU#0, 1) (2, 3): Wrlx (GU#0, 2) ]
-
-XMM Execution Graph:
-<-1, 0> main:
-	(0, 1): THREAD_CREATE [thread 1]
-	(0, 2): THREAD_CREATE [thread 2]
-	(0, 3): THREAD_CREATE [thread 3]
-	(0, 4): THREAD_CREATE [thread 4]
-	(0, 5): THREAD_END
-<0, 1> thread_0:
-	(1, 1): Wrlx (y, 1)
-	(1, 2): THREAD_END
-<0, 2> thread_1:
-	(2, 1): Rrlx (x, 1) [(4, 2)]
-	(2, 2): Wrlx (y, 2)
-	(2, 3): THREAD_END
-<0, 3> thread_3:
-	(3, 1): Rrlx (y, 1) [(1, 1)]
-	(3, 2): Rrlx (y, 2) [(2, 2)]
-	(3, 3): THREAD_END
-<0, 4> thread_2:
-	(4, 1): Rrlx (y, 2) [(2, 2)]
-	(4, 2): Wrlx (x, 1)
-	(4, 3): THREAD_END
-Coherence:
-y: [ (2, 2): Wrlx (GU#0, 2) (1, 1): Wrlx (GU#0, 1) ]
 
 GenMC Execution Graph:
 <-1, 0> main:
@@ -912,6 +887,6 @@ GenMC Execution Graph:
 	(4, 2): THREAD_END
 
 No errors were detected.
-Number of complete executions explored: 37
-Number of duplicate executions explored: 11
+Number of complete executions explored: 36
+Number of duplicate executions explored: 14
 Total wall-clock time: 0.10s

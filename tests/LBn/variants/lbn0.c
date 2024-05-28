@@ -2,6 +2,10 @@
 #include <pthread.h>
 #include <stdatomic.h>
 
+#ifndef N
+#define N 10
+#endif
+
 #include "../lbn.c"
 
 pthread_t t[N];

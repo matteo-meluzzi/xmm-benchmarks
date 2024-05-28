@@ -65,4 +65,5 @@ GenMC Execution Graph:
 No errors were detected.
 Number of complete executions explored: 4
 Number of duplicate executions explored: 1
-Total wall-clock time: 0.12s
+Number of blocked executions seen: 2
+Total wall-clock time: 0.09s
